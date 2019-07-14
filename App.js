@@ -24,6 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import SplashScreen from './SplashScreen';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +33,13 @@ class App extends React.Component {
   }
 
   render() {
+    const { isLoading } = this.state;
+    if (isLoading) {
+      return (
+        <SplashScreen/ >
+      );
+    }
+
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
