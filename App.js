@@ -32,6 +32,19 @@ class App extends React.Component {
     this.state = { isLoading: true }
   }
 
+  async componentDidMount() {
+    const fakeAPICallResponse = await this.performFakeAPICall();
+    if (fakeAPICallResponse) {
+      this.setState({ isLoading: false });
+    }
+  }
+
+  performFakeAPICall = async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve('done'), 3000)
+    })
+  }
+
   render() {
     const { isLoading } = this.state;
     if (isLoading) {
